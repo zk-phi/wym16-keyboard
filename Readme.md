@@ -20,35 +20,46 @@
 
 ※それ以外の方式については、一度組み立ててしまった後でもネジを外してプレートを入れ替えるだけで自由に組み替えることができます。
 
-- ケースマウント
+### PCB マウント系
+#### ケースマウント (プレートなし / あり)
 
 ![case_mount](images/case_mount.gif)
 
 基板をケースに固定し、スイッチプレートは浮かせておく方式です。
 
-- ボトムマウント
+プレートはあってもなくても組むことができます (これも打鍵感に影響するとされます)。
+
+### プレートマウント系
+
+プレートをケースに固定し、基板は吊り下げておく方式です。
+
+プレートの固定方法によってさらに分類があります。
+
+プレート自体は通常のものと、スロットの入ったリーフスプリングマウント風のもの (おためし) から選べます。
+
+#### ボトムマウント
 
 ![bottom_mount](images/bottom_mount.gif)
 
-ケースの下側にプレートを固定し、基板は吊り下げておく方式です。
+ケースの下側にプレートを固定する方式です。
 
-- トップマウント
+#### トップマウント
 
 ![top_mount](images/top_mount.gif)
 
-ケースの上側にプレートを固定し、基板は吊り下げておく方式です。
+ケースの上側にプレートを固定する方式です。
 
-- ガスケットマウント
+#### ガスケットマウント
 
 ![gasket_mount](images/gasket_mount.gif)
 
-ゴムなど柔らかめの素材で上下から挟み込むことでプレートをやさしく固定し、基板は吊り下げておく方式です。
+ゴムなど柔らかめの素材でプレートを上下から柔らかく挟み込む方式です。
 
-- サンドイッチマウント
+#### サンドイッチマウント
 
 ![sandwich_mount](images/sandwich_mount.gif)
 
-ケースの上側と下側でがっちり挟み込んでプレートをケースと一体化させ、基板は吊り下げておく方式です。
+ケースの上側と下側でプレートをがっちり挟み込む方式です。
 
 ## 必要なパーツ
 
@@ -71,18 +82,17 @@
   - 2mm 厚ゴム板 (ガスケットとして使用)
   - ゴム足 x4
 
-## 組立て
-### プレートの命名
+## プレートの命名
 
-プレートの形状が 10 種類 (おまけ込み 11 種類) もあってヤバいので、それぞれにわかりやすい名前をつけることにします。
+プレートの形状が 10 種類 (おまけ込み 11 種類) もあってヤバいので、組立ガイドでは以下の名前で呼ぶことにします。
 
-#### ボトムプレート
+### ボトムプレート
 
 ![bottom_plate](images/bottom_plate.png)
 
 一種類しかないので一番わかりやすいです。いつでも底板として使用します。
 
-#### トッププレート
+### トッププレート
 
 ![top_plates](images/top_plates.png)
 
@@ -94,7 +104,7 @@
 
 ネジ穴周辺の強度をあえて落とすことでしなりを均一にする効果を期待しています (リーフマウント方式ということもあるみたいです) が、アクリルでどれくらいちゃんと機能するかは未知数です。
 
-#### トップフレーム
+### トップフレーム
 
 ![top_frames](images/top_frames.png)
 
@@ -122,7 +132,7 @@
 
 **3mm のものはいつも小さい方のトッププレートを囲うように使用します** (ちょうどトッププレートも 3mm です)。
 
-#### ミドルフレーム
+### ミドルフレーム
 
 ![middle_frames](images/middle_frames.png)
 
@@ -148,13 +158,13 @@
 
 多くの方式でトッププレートの下に使用します。
 
-### 基板を実装する
+## 基板の組立て
 
 ![PCB](images/pcb.png)
 
 キー入力をできるようにしたい場合、あるいはケースマウントを試したい場合、ハンダ付けが必須です。
 
-#### ProMicro にファームウェアを書き込んでおく
+### ProMicro にファームウェアを書き込んでおく
 
 ProMicro にあらかじめファームウェアを書き込んでおきます。
 
@@ -166,7 +176,7 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/firmware.markdo
 make handwired/wym16:default:avrdude
 ```
 
-#### ProMicro にコンスルーを実装しておく
+### ProMicro にコンスルーを実装しておく
 
 ProMicro を基板に連結するためのコンスルーを実装します。
 
@@ -174,19 +184,21 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/conthrough.mark
 
 このキーボードでは ProMicro を「部品面が内側になるように」使用します。
 
-#### ダイオードを実装
+### ダイオードを実装
 
 https://github.com/zk-phi/keyboard-buildguide-common/blob/master/diode.markdown
 
-#### スイッチを実装
+### スイッチを実装
 
 最後にスイッチを実装します。
 
 サンドイッチマウントを試す場合は大きなプレートを、それ以外の場合は小さなプレートを使用してください。
 
+トレイマウントを試す場合はプレートなしでも ok です。
+
 https://github.com/zk-phi/keyboard-buildguide-common/blob/master/switch.markdown
 
-### ケースマウント
+## ケースの組立 / ケースマウント
 
 ![case_mount](images/case_mount.gif)
 
@@ -202,7 +214,7 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/switch.markdown
 
 3. タブ穴付きトップフレーム 3mm, 2mm、トップフレーム 2mm, 3mm をこの順に載せて、全体をネジで締めて完成
 
-### ボトムマウント
+## ケースの組立 / ボトムマウント
 
 ![bottom_mount](images/bottom_mount.gif)
 
@@ -212,7 +224,7 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/switch.markdown
 
 3. タブ穴付きトップフレーム 3mm, 2mm、トップフレーム 2mm, 3mm をこの順に載せて、全体をネジで締めて完成
 
-### トップマウント
+## ケースの組立 / トップマウント
 
 ![top_mount](images/top_mount.gif)
 
@@ -222,7 +234,7 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/switch.markdown
 
 3. タブ穴付きトップフレーム 2mm, トップフレーム 3mm をこの順に重ねて、全体をネジで締めて完成
 
-### ガスケットマウント
+## ケースの組立 / ガスケットマウント
 
 ![gasket_mount](images/gasket_mount.gif)
 
@@ -238,7 +250,7 @@ https://github.com/zk-phi/keyboard-buildguide-common/blob/master/switch.markdown
 
 7. トップフレーム 2mm, 3mm を載せて、全体をネジで締めて完成
 
-### サンドイッチマウント
+## ケースの組立 / サンドイッチマウント
 
 ![sandwich_mount](images/sandwich_mount.gif)
 
