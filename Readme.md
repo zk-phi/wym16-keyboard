@@ -1,6 +1,8 @@
 # wym16 Keyboard
 
-![wym16](images/wym16.png)
+![wym16](images/wym16.jpeg)
+
+![styles](images/styles.png)
 
 パーツの組み付け順を変えることで、１台で様々なケース構成方法（プレートの固定方式）を試せるお得なキーパッドです。
 
